@@ -129,6 +129,10 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             }
         });
     });
+
+    router.get('*', function(req, res) {
+        res.sendfile('./accueil.html'); // load the single view file (angular will handle the page changes on the front-end)
+    });
     
 }
 
