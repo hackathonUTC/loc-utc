@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="itemApp">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="js/controllers.js"></script>
     <title>Loc'UTC - Louez sereinement entre UTCéens</title>
 
     <!-- Bootstrap -->
@@ -16,7 +18,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body>
+  <body ng-controller="PanierListCtrl">
   	<!-- Fixed navbar -->
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
@@ -50,7 +52,7 @@
             </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li  class="active"><a href="panier.html"><img src="icon-panier.png" width="15px" height="15px" /></a> </li>
+            <li class="active"><a href="panier.html"><img src="icon-panier.png" width="15px" height="15px" /></a> </li>
             <li><a href="../navbar-static-top/">Connexion</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -61,9 +63,13 @@
 	<div class="row-fluid">
 		<div class="span12" style="margin-top: 120px;">
 				<div class="hero-unit">
-					<h1>Votre panier</h1>
-					<p>TROLOLO <br>
-					Louez en toute sereinité entre UTCéen sur cette plateforme !</p>
+          <p>Vous avez actuellement 2 items dans votre panier.</p>
+					<ul>
+            <li ng-repeat="item in items">
+              <span>{{item.name}}</span>
+              <p>{{item.descrption}}</p>
+            </li>
+          </ul>
 				</div>
 		</div>
 	</div>
