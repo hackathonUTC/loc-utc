@@ -44,6 +44,18 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             }
         });
     });
+    router.post("/categorie",function(req,res){
+        var query = "INSERT INTO ??(??) VALUES (?)";
+        var table = ["categorie","nom",req.body.nom];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Categorie Added !"});
+            }
+        });
+    });
     router.get("/item/:nom",function(req,res){
         var query = "SELECT * FROM ?? WHERE ??=?";
         var table = ["item","nom",req.params.nom];
@@ -80,18 +92,6 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             }
         });
     });
-    router.get("/reservations/:user_key",function(req,res){
-        var query = "SELECT * FROM ?? WHERE ??=?";
-        var table = ["reservation","user_key",req.params.user_key];
-        query = mysql.format(query,table);
-        connection.query(query,function(err,rows){
-            if(err) {
-                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
-            } else {
-                res.json({"Error" : false, "Message" : "Success", "Reservations" : rows});
-            }
-        });
-    });
     router.get("/categories",function(req,res){
         var query = "SELECT * FROM ??";
         var table = ["categorie"];
@@ -104,6 +104,32 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             }
         });
     });
+    router.get("/reservations/:user_key",function(req,res){
+        var query = "SELECT * FROM ?? WHERE ??=?";
+        var table = ["reservation","user_key",req.params.user_key];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Success", "Reservations" : rows});
+            }
+        });
+    });
+    router.put("/item",function(req,res){
+
+        var query = "UPDATE ?? SET ??=? WHERE ??=?";
+        var table = ["item","dispo",req.params.dispo,"id",req.params.id];
+        query = mysql.format(query,table);
+        connection.query(query,function(err,rows){
+            if(err) {
+                res.json({"Error" : true, "Message" : "Error executing MySQL query"});
+            } else {
+                res.json({"Error" : false, "Message" : "Success"});
+            }
+        });
+    });
+    
 }
 
 module.exports = REST_ROUTER;
