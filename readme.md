@@ -1,8 +1,1 @@
-Hello, world !
-
-<<<<<<< HEAD
-Test
-=======
-Test
-Yolo
->>>>>>> origin/master
+First version of an object renting website, using nodeJS and AngularJS
