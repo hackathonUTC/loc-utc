@@ -2,6 +2,7 @@ var log_ut = angular.module('log_ut', []);
 
 function mainController($scope, $http) {
     $scope.formData = {};
+    $scope.filters = { };
 
     // when landing on the page, get all todos and show them
     $http.get('/api/items')
