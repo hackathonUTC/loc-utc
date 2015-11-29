@@ -13,6 +13,15 @@ function mainController($scope, $http) {
             console.log('Error: ' + data);
         });
 
+    $http.get('/api/categories')
+            .success(function(data) {
+                $scope.tab_cat = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+
     // when submitting the add form, send the text to the node API
     /*$scope.createReservation = function() {
         $http.post('/api/reservation', $scope.formData)
