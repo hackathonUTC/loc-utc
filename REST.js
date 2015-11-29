@@ -64,7 +64,7 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Item" : rows});
+                res.json({"Item" : rows});
             }
         });
     });
@@ -76,7 +76,7 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Item" : rows});
+                res.json({"Item" : rows});
             }
         });
     });
@@ -88,7 +88,7 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Items" : rows});
+                res.json({"Items" : rows});
             }
         });
     });
@@ -100,7 +100,7 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Categories" : rows});
+                res.json({"Categories" : rows});
             }
         });
     });
@@ -112,7 +112,7 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
             if(err) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query"});
             } else {
-                res.json({"Error" : false, "Message" : "Success", "Reservations" : rows});
+                res.json({"Reservations" : rows});
             }
         });
     });
@@ -130,9 +130,6 @@ REST_ROUTER.prototype.handleRoutes= function(router,connection) {
         });
     });
 
-    router.get('*', function(req, res) {
-        res.sendfile('./accueil.html'); // load the single view file (angular will handle the page changes on the front-end)
-    });
     
 }
 
