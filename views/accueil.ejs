@@ -39,16 +39,8 @@
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catégories <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-              	<li><a href="#">Bricolage</a></li>
-                <li><a href="#">Consoles de jeux</a></li>
-                <li><a href="#">Cuisine/Reception</a></li>
-                <li><a href="#">Electroménager</a></li>
-                <li><a href="#">Matériel médical</a></li>
-                <li><a href="#">Mobilier</a></li>
-                <li><a href="#">Photo/Video/Audio</a></li>
-                <li><a href="#">Vélo</a></li>
-                <li><a href="#">Vetements de soirée</a></li>
+              <ul class="dropdown-menu" ng-repeat="cats in tab_cat">
+              	<li ng-repeat="cat in cats"><a >{{cat.nom}}</a></li>
               </ul>
             </li>
           </ul>
@@ -67,12 +59,10 @@
 					<h1>Bienvenue sur loc'UTC</h1>
 					<p>TROLOLO <br>
 					<div >
-                <ul ng-repeat="items in tab">
-                <li ng-repeat="item in items">
-                {{item.nom}}
-                {{item.dispo}}
-                {{item.caution}}
-                </li>
+                <ul>
+                  <li ng-repeat="item in items">
+                       {{item }}
+                  </li>
                 </ul>
                 </div></p>
 				</div>
