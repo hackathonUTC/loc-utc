@@ -67,10 +67,12 @@
 					<h1>Bienvenue sur loc'UTC</h1>
 					<p>TROLOLO <br>
 					<div >
-                <ul>
-                  <li ng-repeat="item in items">
-                       {{item }}
-                  </li>
+                <ul ng-repeat="items in tab">
+                <li ng-repeat="item in items">
+                {{item.nom}}
+                {{item.dispo}}
+                {{item.caution}}
+                </li>
                 </ul>
                 </div></p>
 				</div>

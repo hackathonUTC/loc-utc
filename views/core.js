@@ -6,7 +6,7 @@ function mainController($scope, $http) {
     // when landing on the page, get all todos and show them
     $http.get('/api/items')
         .success(function(data) {
-            $scope.items = data;
+            $scope.tab = data;
             console.log(data);
         })
         .error(function(data) {
